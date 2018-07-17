@@ -3,7 +3,7 @@
 <div id="map" style='width: 800px; height: 400px;'></div>
 <script>
  function initAutocomplete() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('map'), { //지도 초기 위치 지정
           center: {lat: 34.667217, lng: 135.500329},
           zoom: 13,
           mapTypeId: 'roadmap'
@@ -11,8 +11,8 @@
         
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        var searchBox = new google.maps.places.SearchBox(input); //서치박스 텍스트 인풋 박스에 입혀주기
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input); //서치박스로 지도 컨트롤
 
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
@@ -29,20 +29,20 @@
             return;
           }
 
-          // Clear out the old markers.
+          // Clear out the old markers. 검색할때마다 마커 없애주기
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
           markers = [];
 
-          // For each place, get the icon, name and location.
+          // For each place, get the icon, name and location. 장소에 따른 아이콘 받아오기
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
               return;
             }
-            var icon = {
+            var icon = { //아이콘 모양 받아와서 크기 정해주기
               url: place.icon,
               size: new google.maps.Size(71, 71),
               origin: new google.maps.Point(0, 0),
@@ -50,7 +50,7 @@
               scaledSize: new google.maps.Size(25, 25)
             };
 
-            // Create a marker for each place.
+            // Create a marker for each place. 검색시 마커 설정해주기
             markers.push(new google.maps.Marker({
               map: map,
               icon: icon,
@@ -73,3 +73,4 @@
 </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpAfXlcjlDnx6Zjl04Zc-w3c7exoEW-6E&libraries=places&callback=initAutocomplete"
          async defer></script>
+         <!--구글 지도 api-->
