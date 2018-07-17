@@ -1,0 +1,24 @@
+{
+  "name": "Intro_1",
+  "description": "",
+  "main": "",
+  "authors": [
+    "RushBsite <zabaniya09@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "jp_pass"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass":"latest"
+  }
+
+}

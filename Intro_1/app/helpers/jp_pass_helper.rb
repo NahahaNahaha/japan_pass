@@ -1,0 +1,2 @@
+module JpPassHelper
+end
