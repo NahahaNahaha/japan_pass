@@ -114,7 +114,7 @@
       <label for="changemode-driving">Driving</label>
     </div>
     
-    <div id="right-panel"></div>
+    <div id="right-panel"></div> <!--information tab-->
     <div id="map"></div>
 
     <script>
@@ -142,7 +142,7 @@
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = new google.maps.DirectionsRenderer;
         this.directionsDisplay.setMap(map);
-        this.directionsDisplay.setPanel(document.getElementById('right-panel'));
+        this.directionsDisplay.setPanel(document.getElementById('right-panel')); //information tab init
         
         var originAutocomplete = new google.maps.places.Autocomplete(
             originInput, {placeIdOnly: true});
