@@ -55,6 +55,44 @@
         font-size: 13px;
         font-weight: 300;
       }
+      
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+      #map {
+        margin-right: 400px;
+      }
+     
+      @media print {
+        #map {
+          height: 500px;
+          margin: 0;
+        }
+        #right-panel {
+          float: none;
+          width: auto;
+        }
+      }
 
     </style>
   </head>
@@ -75,7 +113,8 @@
       <input type="radio" name="type" id="changemode-driving">
       <label for="changemode-driving">Driving</label>
     </div>
-
+    
+    <div id="right-panel"></div>
     <div id="map"></div>
 
     <script>
@@ -86,8 +125,10 @@
           center: {lat: 34.667217, lng:135.500329},
           zoom: 13
         });
-
+        
         new AutocompleteDirectionsHandler(map);
+        
+      
       }
       
       function AutocompleteDirectionsHandler(map) {
@@ -101,7 +142,8 @@
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = new google.maps.DirectionsRenderer;
         this.directionsDisplay.setMap(map);
-
+        this.directionsDisplay.setPanel(document.getElementById('right-panel'));
+        
         var originAutocomplete = new google.maps.places.Autocomplete(
             originInput, {placeIdOnly: true});
         var destinationAutocomplete = new google.maps.places.Autocomplete(
